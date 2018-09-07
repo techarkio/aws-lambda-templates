@@ -14,7 +14,8 @@ deploy:
   region: ap-southeast-1
   role: arn:aws:iam::874780892533:role/service-role/lambda_basic_execution
   runtime: python3.6
-  handler_name: s3_uploader.lambda_handler
+  module_name: s3_uploader
+  handler_name: lambda_handler
   on:
     branch: feature/s3-uploader
   access_key_id:
