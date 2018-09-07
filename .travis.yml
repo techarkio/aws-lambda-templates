@@ -1,6 +1,6 @@
 deploy:
   provider: lambda
-  function_name: "lambda-test"
+  function_name: "s3-uploader"
   region: "ap-southeast-1"
   role: "arn:aws:iam::874780892533:role/service-role/lambda_basic_execution"
   runtime: "python3.6"
