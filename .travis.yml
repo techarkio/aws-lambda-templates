@@ -8,6 +8,8 @@ deploy:
   role: arn:aws:iam::874780892533:role/service-role/lambda_basic_execution
   runtime: python3.6
   handler_name: s3_uploader.lambda_handler
+  on:
+    branch: master
   access_key_id:
     secure: Yfa0U84iF0BsEYBXmRHBmIXAGH9TFGcfVBAWk9m9KAnuP/ySj1i8iVY862oD+uP2FIbtUonsp8M0Uzsc2+va1JW2MoX6i9848X02pnhwgvk9ggKAXnQ4EbtUFDgYXWmLwzpNV2jwGsyFseDmuHhC/z5/v+D5tt77cAHBOcy5f9I3cr5m3umNGL7mjFDs48GBg4tFxfabKH5fMIQtawE3A2vI/myZNCymWmidgREgHTpWaUaMMw/emGIilJqg23OPtjOD9SDTEgAagFDd+hDdxm6mxYTwn1+2eNc/yXW4HlLU2NHOtOlLqAmZL0lZfort6NpeYCzbIoIu+GLoB4K6DZX0C3/Oj9JWem+L8qseQGf4SVApgBQ7S8tl8jHPW2++YY7JEfXgkYvyIgDmDfJcCNWJYjLwXhUJEEfHxT2KsZ6SLgXhZiCtOZpNS8s521knezXsCKrn1z7g863XksuzD7/ySQLCOYnGmLPQyqVBD0maBIGHV32y0f1Xl9PB8XzBQf1Iq+K9uuA0ZVItWHaiLU+D6qIkAIYh9cy9wbDG13ubphzEtwm+PEo88DCIE5+IwSAt/YIATmjXKdY3bCpNuhtsIE8CaB4QC5NaquyPKjvKes4guGqfhDnLjdHmUYcWA1HyelFv/ZHqXQIGSsKLi8JBROrBVZ9qkblrhmkU4Dg=
   secret_access_key:
