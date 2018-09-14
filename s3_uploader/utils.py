@@ -1,8 +1,6 @@
 
 def get_filename(header):
     filename = None
-    if not isinstance(header, dict):
-        return filename
 
     content_disposition = header[b'Content-Disposition'].decode('utf-8')
     for item in content_disposition.split(';'):
