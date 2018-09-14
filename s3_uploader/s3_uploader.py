@@ -15,6 +15,7 @@ def lambda_handler(event, context):
     if 'body-json' in event_keys and 'params' in event_keys:
         body_data = event['body-json']
         params = event['params']
+        print(params)
     else:
         return {
             "message": "Body content is not in format."

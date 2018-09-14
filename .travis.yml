@@ -12,7 +12,7 @@ deploy:
   provider: lambda
   function_name: s3_uploader
   region: ap-southeast-1
-  role: arn:aws:iam::874780892533:role/service-role/lambda_basic_execution
+  role: arn:aws:iam::874780892533:role/service-role/lambda_ap_southeast_1_c3_uploader
   runtime: python3.6
   module_name: s3_uploader
   handler_name: lambda_handler
