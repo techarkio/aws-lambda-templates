@@ -1,2 +1,2 @@
-BUCKET_NAME = "dev-firmware-science-data-collection"
+BUCKET_NAME = "dev-fw-science-data-collection-us-east-2"
 FOLDER = "sensor-data"

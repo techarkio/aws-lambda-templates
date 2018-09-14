@@ -2,23 +2,23 @@ language: python
 python:
 - '3.6'
 # command to install dependencies
-install:
-  - pip install -r requirements.txt
+# install:
+#  - pip install -r requirements.txt
 # command to run tests
 script:
   - cd s3_uploader
   - echo "skipping tests"
 deploy:
   provider: lambda
-  function_name: s3_uploader
-  region: ap-southeast-1
-  role: arn:aws:iam::874780892533:role/service-role/lambda_ap_southeast_1_c3_uploader
+  function_name: fw-science-data-collection-s3-uploader-us-east-2
+  region: us-east-2
+  role: arn:aws:iam::147907368845:role/service-role/fw-science-us-east-2
   runtime: python3.6
-  module_name: s3_uploader
+  module_name: fw-science-data-collection-s3-uploader-us-east-2
   handler_name: lambda_handler
   on:
-    branch: feature/s3-uploader
+    branch: feature/s3-uploader-dev
   access_key_id:
-    secure: Yfa0U84iF0BsEYBXmRHBmIXAGH9TFGcfVBAWk9m9KAnuP/ySj1i8iVY862oD+uP2FIbtUonsp8M0Uzsc2+va1JW2MoX6i9848X02pnhwgvk9ggKAXnQ4EbtUFDgYXWmLwzpNV2jwGsyFseDmuHhC/z5/v+D5tt77cAHBOcy5f9I3cr5m3umNGL7mjFDs48GBg4tFxfabKH5fMIQtawE3A2vI/myZNCymWmidgREgHTpWaUaMMw/emGIilJqg23OPtjOD9SDTEgAagFDd+hDdxm6mxYTwn1+2eNc/yXW4HlLU2NHOtOlLqAmZL0lZfort6NpeYCzbIoIu+GLoB4K6DZX0C3/Oj9JWem+L8qseQGf4SVApgBQ7S8tl8jHPW2++YY7JEfXgkYvyIgDmDfJcCNWJYjLwXhUJEEfHxT2KsZ6SLgXhZiCtOZpNS8s521knezXsCKrn1z7g863XksuzD7/ySQLCOYnGmLPQyqVBD0maBIGHV32y0f1Xl9PB8XzBQf1Iq+K9uuA0ZVItWHaiLU+D6qIkAIYh9cy9wbDG13ubphzEtwm+PEo88DCIE5+IwSAt/YIATmjXKdY3bCpNuhtsIE8CaB4QC5NaquyPKjvKes4guGqfhDnLjdHmUYcWA1HyelFv/ZHqXQIGSsKLi8JBROrBVZ9qkblrhmkU4Dg=
+    secure: cipa8eVjrdmJFgbDFf/qZciTGWTwZ3AHwY6WyvyWWlWlUIB70GTk/Ad530RzdYqt4kVIMfLIqlq5hD3Ho0/Ub3Eta03mcyDqgCPwQ1mWwBUizmeHK2Rx0CfWtkXfDJZLhAiYcsXX3dJyHM/XiKvzhqurceYsjsD4L5ezf6y95O96oXP8oIPhYx3C1FvRgSTrUNvkJa7pgKj7XxtQ2KDA3D1Svc2NMliZlYAFf8T3Y8x+2OV1XN/XBK5GrTBkI8mxIckrRpa9s4LJCkzkhWLZBVM/VPwHf77zYZFeNvIAZ/0QtjY9oWNWGPFu1zFSw2GkoYyO5nLgvXSgPAu+kIoQH9bMlsR84Dt3D7McH1gFAbDqamaRr38/o3fhYohm8Ms7+5rAo3Nr0KHgO4KUg54aHU6uiS54r0BLgOkOWd6v+c1oHzEjFLr0EU5H4WAAxKRs20guDxIhcSUR3dN6MY2CRCfie3Y6tVoaWN+bP89+rfPzP9NPUBRXmN+RnaA/mjVVM/KGaemz5CfaMuCFwkEofw3By5Em+Rfmsb5mEOItxf6ZH/ft/mn5RS0z0/iYDYZbC0tizj/Zba3xeph0Ru+oTlSQ5VBtT/GBhKv0Z4yuxrbbofLZy4ZINhBwDm30MKJjc9f4aOsqIgmKs55/ubB+BpRDiBlwkN/KKhSFx/6QFM0=
   secret_access_key:
-    secure: azJ0+0CLy0u2O5jkiNIR87kbPJ5SEYVjgNoQ7rIwHXp0YjpAb+FJG197pbdD7QPrlxPoqZpcaUmg6NAZxppQ2AwYFCFG64tulOCzyjUJYUavpWH1xoTZwUem/sEKFT23B9rk3BBFBNtKS51d9Ykb79RiY5re0t34U/dohdkZ2W7R7GIMlCiscoHGRsDX2eX9Fiy+hmLg1Z2pqY+CvkcZG8tEUL8cU1uF7FdAELE9B+jvZAhRQQIzYSQkyxuklQ0HjdrVk4Ouh4Ol3llyWr9wp+ZJChqE+0/YCcbcTks1nrUGBefYfz/7jEKJjGIHFsFnW3QjFZDf6sufxI8MReqVvW8gXqEi+xFquFc+gIZCp0q7qeFZylfERHoTTyQBkLv64zR3DpzxfA/0OjDz5oMEw/sAD//lYfJi5Xm/K+nGgtuk3l0eIR0VlP5bzz7kPEiD2ksjZZQUDSbnw6FhI1E1X5TpYAMw7mIiusOQshREfVcubPNTchJA6W7zpR3Z9cl6roFk4v9bzX/EzuiZ6ZA5NN7ksT4/gvv5UZPTembDoZSuFRYp7XToAH62fSi0fFOqSCk/0SCz4cisUcZiQFhTqnk8hfRM/DAOFtsIGv00zpwILyxKamMJwl6I8ShXY2O8n5XrqIsi3jt2j3mIUJAY5BdQtMTZzxCUkARtuUCeij0=
+    secure: EqXxdPo6PL/sUQ+hzfFmyQxMcEoso+41/t7K3xiJ9uj+1+2mo5I+mdNm3X6+39P9G1IOgdAyR/8f4p6rfm+IPi7m+OWHeJauIF/JdYr8Blmafvq3jx6ZA6Cprt8a5ALmYO0YMWi+MBM8AQN2U/PpRmMHHlcgXI8omMMpMLdeJ0fjAjvCDpZqoTXFDOlyW1Hn3PH9eaolhoaEqQcjbeYZrFnMUb1pG/0uOMxAn6VlxrPW7adnPH2jlKHVPYo3GSyDrtwwf4nUKfMvBTeiMRn1mo9pgWslHoYjVYIVAgYYXSpI+TXpWWsNqQnurM3GzayeoMvQZZgds5vNg2bnTypUww4B0FVCs7BnrGnl8pYFF088Gh78gwn9gH7ijinIeypMNK/TXoRk5Ze2b7XuMD0pUJBlu9JuCoXho6gAwrF5C44TWHBRNdE6wYFGcbSXLGL9dzLH0SAGWUt4aaCq1cOe+AiPFpFocm/+Pt4cqBWf/EJFA+jQVMqqxG7OaTutkW2pKdB6HSOOaYwPhI2JN3CwPUS4v4O+Q54baAsZwee6wd+K20rVgmUWQXVwYGAQv5GAHFaq+IMqf0FfeDWICG76ySkbNqnB/id7+5tS0OocUib/R6ebMut289yVNDfDSLaNkYKKNdZdBfRtVobwHMXvQ4T2hppnjX1/MS61uTPZ5dY=
