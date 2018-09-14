@@ -6,11 +6,11 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - cd s3-uploader
+  - cd s3_uploader
   - echo "skipping tests"
 deploy:
   provider: lambda
-  function_name: s3-uploader
+  function_name: s3_uploader
   region: ap-southeast-1
   role: arn:aws:iam::874780892533:role/service-role/lambda_basic_execution
   runtime: python3.6
