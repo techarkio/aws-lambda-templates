@@ -11,7 +11,8 @@ import uuid
 
 def lambda_handler(event, context):
     event_keys = event.keys()
-    if 'body-json' not in event_keys or 'params' not in event_keys:
+
+    if 'body-json' in event_keys and 'params' in event_keys:
         body_data = event['body-json']
         params = event['params']
     else:
